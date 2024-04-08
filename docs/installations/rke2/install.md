@@ -7,8 +7,7 @@ To install a K8s cluster using RKE2, run the following commands:
 ```bash
 sudo mkdir -p /etc/rancher/rke2 && \
 sudo cat <<EOF | sudo tee /etc/rancher/rke2/config.yaml
-node-name: oranlocal-master
-disable: rke2-ingress-nginx
+node-name: oransc-master
 cni:
     - multus
     - canal
@@ -33,5 +32,11 @@ journalctl -u rke2-server -f
 
 ```bash
 mkdir -p ~/.kube/
-cp /etc/rancher/rke2/rke2.yaml ~/.kube/config
+sudo cp /etc/rancher/rke2/rke2.yaml ~/.kube/config
+```
+
+## Clean-up
+
+```bash
+sudo sh /usr/local/bin/rke2-uninstall.sh
 ```

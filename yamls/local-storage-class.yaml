@@ -4,7 +4,7 @@ metadata:
   name: local-storage
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"
-provisioner: k8s.io/minikube-hostpath # change it if necessary
+provisioner: openebs.io/local # change it if necessary
 reclaimPolicy: Delete # default value is Delete
 allowVolumeExpansion: true
 mountOptions:
