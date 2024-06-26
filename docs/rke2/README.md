@@ -2,7 +2,15 @@
 
 To install a K8s cluster using RKE2, run the following commands:
 
-## Node Configuration
+## Install Server Node
+
+```bash
+curl -sfL https://get.rke2.io | sudo sh -
+```
+
+> **_NOTE_** Use INSTALL_RKE2_VERSION="vX.XX.XX+rke2r1" to set K8s version
+
+### Node Configuration
 
 ```bash
 sudo mkdir -p /etc/rancher/rke2 && \
@@ -15,14 +23,6 @@ node-label:
     - "oran-role=5gc"
 EOF
 ```
-
-## Install Server Node
-
-```bash
-curl -sfL https://get.rke2.io | sudo sh -
-```
-
-> **_NOTE_** Use INSTALL_RKE2_VERSION="vX.XX.XX+rke2r1" to set K8s version
 
 ### Start Server Node
 
