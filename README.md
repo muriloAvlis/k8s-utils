@@ -4,8 +4,9 @@
 
 ### K8s Cluster
 
-1. [RKE2 Cluster deployment](docs/rke2/install.md)
+1. [RKE2 Cluster deployment](docs/rke2/README.md)
 
 ### K8s Tools
 
-1. [OpenEBS deployment](docs/openebs/install.md)
+1. [OpenEBS deployment](docs/openebs/README.md)
+2. [helm](docs/helm/README.md)
