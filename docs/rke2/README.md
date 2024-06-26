@@ -10,17 +10,14 @@ curl -sfL https://get.rke2.io | sudo sh -
 
 > **_NOTE_** Use INSTALL_RKE2_VERSION="vX.XX.XX+rke2r1" to set K8s version
 
-### Node Configuration
+### Server Configuration
 
 ```bash
 sudo mkdir -p /etc/rancher/rke2 && \
 sudo cat <<EOF | sudo tee /etc/rancher/rke2/config.yaml
-node-name: k8s-master
 cni:
     - multus
     - calico
-node-label:
-    - "oran-role=5gc"
 EOF
 ```
 
@@ -48,7 +45,7 @@ kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 ## Install Worker Node (optional)
 
 ```sh
-curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE="agent" sh -
+curl -sfL https://get.rke2.io | sudo INSTALL_RKE2_TYPE="agent" sh -
 ```
 
 ### Enable Worker Node
@@ -58,23 +55,22 @@ systemctl enable rke2-agent.service
 ```
 
 
-### Configure the rke2-agent service
+### Worker Configuration
 
 ```sh
 sudo mkdir -p /etc/rancher/rke2 && \
 sudo cat <<EOF | sudo tee /etc/rancher/rke2/config.yaml
 server: https://<server-addr>:9345
 token: <token from server node>
-node-name: k8s-worker-0
 node-label:
-    - "oran-role=gNBs"
+    - "node-role.kubernetes.io/worker=worker"
 EOF
 ```
 
 > **_NOTE_** The token is available on /var/lib/rancher/rke2/server/node-token
 
 ### Start Worker Node
-
+'
 ```sh
 systemctl start rke2-agent.service
 ```
