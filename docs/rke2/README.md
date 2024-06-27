@@ -44,6 +44,8 @@ kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 
 ## Install Worker Node (optional)
 
+On another machine, run the following commands:
+
 ```sh
 curl -sfL https://get.rke2.io | sudo INSTALL_RKE2_TYPE="agent" sh -
 ```
