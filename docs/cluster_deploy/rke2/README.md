@@ -58,8 +58,6 @@ sudo mkdir -p /etc/rancher/rke2 && \
 sudo cat <<EOF | sudo tee /etc/rancher/rke2/config.yaml
 server: https://<server-addr>:9345
 token: <token from server node>
-node-label:
-    - "node-role.kubernetes.io/worker=worker"
 EOF
 ```
 
