@@ -79,6 +79,8 @@ sudo systemctl start rke2-agent.service
 
 ## Clean up
 
+On each machine run the following command:
+
 ```bash
 sudo sh /usr/local/bin/rke2-uninstall.sh
 ```
