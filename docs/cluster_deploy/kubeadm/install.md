@@ -70,7 +70,7 @@ sudo systemctl restart containerd.service
 sudo kubeadm config images pull
 
 ## Start cluster
-sudo kubeadm init --pod-network-cidr 10.100.0.0/16
+sudo kubeadm init --pod-network-cidr 10.1.0.0/16
 ```
 
 - Get Cluster Config
@@ -97,9 +97,16 @@ kubectl create namespace tigera-operator
 helm install calico projectcalico/tigera-operator --version v3.28.1 --namespace tigera-operator
 ```
 
-- Flannel (TODO)
+- Flannel (Recommended when deploy OAI-5GC)
 
-- Mutus (TODO)
+```sh
+# Needs manual creation of namespace to avoid helm error
+kubectl create ns kube-flannel
+kubectl label --overwrite ns kube-flannel pod-security.kubernetes.io/enforce=privileged
+
+helm repo add flannel https://flannel-io.github.io/flannel/
+helm install flannel --set podCidr="10.1.0.0/16" --namespace kube-flannel flannel/flannel
+```
 
 #### Join Others Nodes
 
