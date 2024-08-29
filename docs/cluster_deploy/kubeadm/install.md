@@ -9,7 +9,9 @@ To install a K8s cluster using Kubeadm, run the following commands:
 - [kubeadm](/scripts/kubeadmInstall.sh);
 - helm (for CNI installation)
 
-## VMs Preparation
+## Getting Starting
+
+### VMs Preparation
 
 - Disable swap
 
@@ -59,16 +61,16 @@ EOF
 sudo systemctl restart containerd.service
 ```
 
-## Setup Cluster (Master)
+### Setup Cluster (Master)
 
 - Create Cluster 
 
 ```sh
 ## Download k8s images
-kubeadm config images pull
+sudo kubeadm config images pull
 
 ## Start cluster
-sudo kubeadm init --pod-network-cidr 172.168.0.0/16
+sudo kubeadm init --pod-network-cidr 10.100.0.0/16
 ```
 
 - Get Cluster Config
@@ -83,10 +85,9 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ```sh
 kubectl taint nodes --all node-role.kubernetes.io/control-plane-
-kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 
-### Install Container Network Interface (CNI)
+#### Install Container Network Interface (CNI)
 
 - Calico
 
@@ -100,7 +101,7 @@ helm install calico projectcalico/tigera-operator --version v3.28.1 --namespace 
 
 - Mutus (TODO)
 
-### Join Others Nodes
+#### Join Others Nodes
 
 - On master
 
@@ -117,4 +118,19 @@ chmod +x kubeadmInstall
 
 ## Run join command
 kubeadm join <API_SERVER_IP>:<PORT> --token <TOKEN> --discovery-token-ca-cert-hash sha256:<HASH>
+```
+
+
+## Clean up
+
+```sh
+sudo kubeadm reset -f
+sudo rm -rf /etc/cni /etc/kubernetes /var/lib/dockershim /var/lib/etcd /var/lib/kubelet /var/run/kubernetes ~/.kube
+sudo ctr -n k8s.io image prune --all
+sudo iptables -F && sudo iptables -X
+sudo iptables -t nat -F && sudo iptables -t nat -X
+sudo iptables -t raw -F && sudo iptables -t raw -X
+sudo iptables -t mangle -F && sudo iptables -t mangle -X
+sudo systemctl restart containerd
+sudo systemctl restart docker
 ```
