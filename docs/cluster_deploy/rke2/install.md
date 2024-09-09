@@ -33,6 +33,7 @@ sudo systemctl start rke2-server.service
 ```bash
 mkdir -p ~/.kube/
 sudo cp /etc/rancher/rke2/rke2.yaml ~/.kube/config
+sudo chown $USER:$USER ~/.kube/config
 ```
 
 ### Get kubectl
