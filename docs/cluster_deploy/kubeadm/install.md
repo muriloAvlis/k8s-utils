@@ -94,7 +94,7 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 ```sh
 helm repo add projectcalico https://docs.tigera.io/calico/charts
 kubectl create namespace tigera-operator
-helm install calico projectcalico/tigera-operator --version v3.29.1 --namespace tigera-operator
+helm install calico projectcalico/tigera-operator --version v3.29.3 --namespace tigera-operator
 ```
 
 - Flannel (Recommended when deploy OAI-5GC)
