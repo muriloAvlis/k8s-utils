@@ -67,7 +67,7 @@ sudo systemctl restart containerd.service
 
 ```sh
 ## Download k8s images
-sudo kubeadm config images pull
+sudo kubeadm config images pull --v=6
 
 ## Start cluster
 sudo kubeadm init --pod-network-cidr 10.1.0.0/16
