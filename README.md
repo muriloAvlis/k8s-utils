@@ -10,8 +10,8 @@
 ### K8s Tools
 
 1. [OpenEBS](docs/tools/openebs/install.md)
-2. [helm](docs/tools/helm/README.md)
-3. [traefik](docs/tools/traefik/README.md)
-4. [metallb](docs/tools/metallb/README.md)
+2. [helm](docs/tools/helm/install.md)
+3. [traefik](docs/tools/traefik/install.md)
+4. [metallb](docs/tools/metallb/install.md)
 5. [multus](docs/tools/multus/install.md)
 5. [local-path-provisioner](docs/tools/local-path-provisioner/install.md)
