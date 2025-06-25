@@ -6,6 +6,7 @@
 
 1. [RKE2](docs/cluster_deploy/rke2/install.md)
 2. [kubeadm](docs/cluster_deploy/kubeadm/install.md)
+3. [kubespray](docs/cluster_deploy/kubespray/install.md)
 
 ### K8s Tools
 
