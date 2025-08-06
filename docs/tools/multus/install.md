@@ -2,7 +2,6 @@
 
 ## Requirements
 
-- Git
 - K8s Cluster
 - kubectl
 
@@ -11,5 +10,5 @@
 ### Install Multus from GitHub Repository
 
 ```sh
-kubectl apply -f https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/deployments/multus-daemonset.yml
+kubectl apply -f yamls/multus-daemonset.yml
 ```
