@@ -5,6 +5,7 @@
 ### K8s Cluster
 
 1. [RKE2](docs/cluster_deploy/rke2/install.md)
+3. [K3s](docs/cluster_deploy/k3s/install.md)
 2. [kubeadm](docs/cluster_deploy/kubeadm/install.md)
 3. [kubespray](docs/cluster_deploy/kubespray/install.md)
 
