@@ -1,0 +1,112 @@
+{
+  "resourceList":
+    [
+      {
+        "resourceName": "intel_sriov_netdevice",
+        "selectors":
+          [
+            {
+              "vendors": ["8086"],
+              "devices": ["154c", "10ed", "1889"],
+              "drivers": ["i40evf", "ixgbevf", "iavf"],
+            },
+          ],
+      },
+      {
+        "resourceName": "intel_sriov_dpdk",
+        "resourcePrefix": "intel.com",
+        "selectors":
+          [
+            {
+              "vendors": ["8086"],
+              "devices": ["154c", "10ed", "1889"],
+              "drivers": ["vfio-pci"],
+              "pfNames": ["enp0s0f0", "enp2s2f1"],
+              "needVhostNet": true,
+            },
+          ],
+      },
+      {
+        "resourceName": "mlnx_sriov_rdma",
+        "resourcePrefix": "mellanox.com",
+        "selectors":
+          [
+            {
+              "vendors": ["15b3"],
+              "devices": ["1018"],
+              "drivers": ["mlx5_ib"],
+              "isRdma": true,
+            },
+          ],
+      },
+      {
+        "resourceName": "infiniband_rdma_netdevs",
+        "selectors": [{ "linkTypes": ["infiniband"], "isRdma": true }],
+      },
+      {
+        "resourceName": "ct6dx_vdpa_vhost",
+        "selectors":
+          [
+            {
+              "vendors": ["15b3"],
+              "devices": ["101e"],
+              "drivers": ["mlx5_core"],
+              "vdpaType": "vhost",
+            },
+          ],
+      },
+      {
+        "resourceName": "intel_fpga",
+        "deviceType": "accelerator",
+        "selectors": [{ "vendors": ["8086"], "devices": ["0d90"] }],
+      },
+      {
+        "resourceName": "bf2_sf",
+        "resourcePrefix": "nvidia.com",
+        "deviceType": "auxNetDevice",
+        "selectors":
+          [
+            {
+              "vendors": ["15b3"],
+              "devices": ["a2d6"],
+              "pfNames": ["p0#1-5"],
+              "auxTypes": ["sf"],
+            },
+          ],
+      },
+      {
+        "resourceName": "intel_sriov_netdevice_additional_env",
+        "selectors":
+          [
+            {
+              "vendors": ["8086"],
+              "devices": ["154c", "10ed", "1889"],
+              "drivers": ["i40evf", "ixgbevf", "iavf"],
+            },
+          ],
+        "additionalInfo":
+          { "*": { "token": "3e49019f-412f-4f02-824e-4cd195944205" } },
+      },
+      {
+        "resourceName": "brcm_sriov_bnxt",
+        "resourcePrefix": "broadcom.com",
+        "selectors":
+          [
+            {
+              "vendors": ["14e4"],
+              "devices": ["1750"],
+              "drivers": ["bnxt_en"],
+            },
+          ],
+      },
+      {
+        "resourceName": "old_selectors_syntax_example",
+        "selectors":
+          {
+            "vendors": ["8086"],
+            "devices": ["154c", "10ed", "1889"],
+            "drivers": ["i40evf", "ixgbevf", "iavf"],
+          },
+      },
+    ],
+}

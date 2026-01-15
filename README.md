@@ -17,3 +17,4 @@
 4. [metallb](docs/tools/metallb/install.md)
 5. [multus](docs/tools/multus/install.md)
 5. [local-path-provisioner](docs/tools/local-path-provisioner/install.md)
+6. [SR-IOV Device Plugin](docs/tools/sriovdp/install.md)
